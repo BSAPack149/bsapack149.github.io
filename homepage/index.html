@@ -372,6 +372,77 @@
       font-size: 0.85rem;
       color: var(--gray-text);
     }
+
+    /* === FOOTER === */
+    .footer {
+      background: var(--navy);
+      color: var(--white);
+      padding: 3.5rem 1.5rem 1.25rem;
+    }
+    .footer-top {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: auto 1fr auto auto;
+      gap: 2.5rem;
+      align-items: start;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+    }
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .footer-logo img { border-radius: 4px; }
+    .footer-brand {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      line-height: 1.5;
+      color: var(--white);
+    }
+    .footer-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem 1.25rem;
+      padding-top: 0.2rem;
+    }
+    .footer-nav a {
+      color: rgba(255,255,255,0.72);
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: color 0.15s;
+    }
+    .footer-nav a:hover { color: var(--gold); }
+    .footer-info {
+      font-size: 0.83rem;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.65;
+    }
+    .footer-info a { color: var(--gold); }
+    .footer-info a:hover { text-decoration: underline; }
+    .footer-social {
+      display: flex;
+      gap: 0.85rem;
+      align-items: center;
+      padding-top: 0.1rem;
+    }
+    .footer-social a {
+      color: rgba(255,255,255,0.65);
+      transition: color 0.15s;
+    }
+    .footer-social a:hover { color: var(--gold); }
+    .footer-bottom {
+      max-width: var(--max-width);
+      margin: 1.25rem auto 0;
+      font-size: 0.73rem;
+      color: rgba(255,255,255,0.42);
+      text-align: center;
+    }
   </style>
 </head>
 <body>
@@ -520,6 +591,36 @@
   </section>
 
   <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-logo">
+        <img src="https://placehold.co/50x50/ffc72c/003f87?text=149" alt="Pack 149" width="50" height="50">
+        <span class="footer-brand">CUB SCOUT PACK 149<br><small>AUSTIN, TEXAS</small></span>
+      </div>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="/about" target="_parent">About</a>
+        <a href="/programs" target="_parent">Programs</a>
+        <a href="/calendar" target="_parent">Calendar</a>
+        <a href="/join" target="_parent">Join</a>
+        <a href="/contact" target="_parent">Contact</a>
+      </nav>
+      <div class="footer-info">
+        <p>Spicewood Springs Elementary<br>2201 Northland Dr, Austin, TX 78757</p>
+        <a href="mailto:info@bsapack149.org">info@bsapack149.org</a>
+      </div>
+      <div class="footer-social">
+        <a href="#" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        <a href="#" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Cub Scout Pack 149 · Austin, Texas · Chartered by Spicewood Springs Elementary PTA</p>
+    </div>
+  </footer>
 
   <script>
     // hamburger toggle goes here in Task 8
