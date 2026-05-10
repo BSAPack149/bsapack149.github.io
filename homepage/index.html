@@ -155,6 +155,47 @@
       transition: background 0.2s;
     }
     .btn-primary:hover { background: var(--gold-dark); }
+
+    /* === VALUE PROPS === */
+    .value-props {
+      background: var(--white);
+      padding: 3rem 1.5rem;
+      border-bottom: 1px solid #e8e8e8;
+    }
+    .value-container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .value-card {
+      flex: 1;
+      min-width: 150px;
+      max-width: 190px;
+      text-align: center;
+      padding: 1.5rem 0.75rem;
+    }
+    .value-icon {
+      font-size: 2.25rem;
+      margin-bottom: 0.6rem;
+      line-height: 1;
+    }
+    .value-card h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--navy);
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      margin-bottom: 0.4rem;
+    }
+    .value-card p {
+      font-size: 0.82rem;
+      color: var(--gray-text);
+      line-height: 1.5;
+    }
   </style>
 </head>
 <body>
@@ -192,6 +233,36 @@
   </section>
 
   <!-- VALUE PROPS -->
+  <section class="value-props">
+    <div class="value-container">
+      <div class="value-card">
+        <div class="value-icon">🏕️</div>
+        <h3>Adventure</h3>
+        <p>Explore the outdoors and try new things</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🤝</div>
+        <h3>Friendship</h3>
+        <p>Build lasting friendships and strong character</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">⭐</div>
+        <h3>Leadership</h3>
+        <p>Develop confidence and lead by example</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🎉</div>
+        <h3>Fun</h3>
+        <p>Games, activities, and memories that last</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">👨‍👩‍👧‍👦</div>
+        <h3>Family</h3>
+        <p>A program the whole family can enjoy</p>
+      </div>
+    </div>
+  </section>
+
   <!-- ABOUT -->
   <!-- EVENTS -->
   <!-- FOOTER -->
