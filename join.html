@@ -12,12 +12,12 @@
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     body{font-family:'Open Sans',sans-serif;color:#222;line-height:1.6}
     a{text-decoration:none} img{display:block;max-width:100%} ul{list-style:none}
+
+    /* NAV */
     .navbar{background:var(--navy);position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.35)}
     .nav-container{max-width:var(--max-width);margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:90px}
     .nav-logo{display:flex;align-items:center;gap:.75rem;color:var(--white)}
     .nav-logo img{height:70px;width:auto}
-    .nav-brand{font-family:'Oswald',sans-serif;font-size:.72rem;line-height:1.3;letter-spacing:.06em;text-transform:uppercase}
-    .nav-brand strong{font-size:1.05rem;color:var(--gold);display:block}
     .nav-links{display:flex;align-items:center;gap:.15rem}
     .nav-links a{color:var(--white);font-family:'Oswald',sans-serif;font-size:.88rem;letter-spacing:.05em;text-transform:uppercase;padding:.45rem .7rem;border-radius:4px;transition:background .15s}
     .nav-links a:hover{background:rgba(255,255,255,.12)}
@@ -25,26 +25,212 @@
     .nav-links a.nav-cta:hover{background:rgba(255,255,255,.12);color:var(--gold)}
     .hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:.5rem}
     .hamburger span{display:block;width:24px;height:2px;background:var(--white);border-radius:2px}
-    .page-header{background:var(--navy);padding:3rem 1.5rem}
-    .page-header h1{font-family:'Oswald',sans-serif;font-size:2.5rem;font-weight:700;color:var(--white);text-transform:uppercase}
-    .page-content{max-width:var(--max-width);margin:0 auto;padding:4rem 1.5rem;color:var(--gray-text)}
-    .page-content p{font-size:1rem;line-height:1.75}
+
+    /* HERO */
+    .join-hero {
+      position: relative;
+      min-height: 420px;
+      background: url('join-hero.png') center 60% / cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .join-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,40,100,0.65) 0%, rgba(0,40,100,0.50) 100%);
+    }
+    .join-hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 3rem 1.5rem;
+      max-width: 720px;
+    }
+    .join-hero-content h1 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--white);
+      text-transform: uppercase;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+    .join-hero-content h1 span { color: var(--gold); }
+    .join-hero-content p {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.9);
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    /* STEPS SECTION */
+    .steps-section {
+      background: var(--gray-light);
+      padding: 5rem 1.5rem;
+    }
+    .steps-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+    .steps-header .eyebrow {
+      font-family: 'Oswald', sans-serif;
+      font-size: .85rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      margin-bottom: .5rem;
+    }
+    .steps-header h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--navy);
+      text-transform: uppercase;
+    }
+    .steps-grid {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    .step-card {
+      background: var(--white);
+      border-radius: 8px;
+      padding: 2.5rem 2rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,.08);
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    .step-number {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .step-card:first-child .step-number { background: var(--gold); color: var(--navy); }
+    .step-card:last-child  .step-number { background: var(--navy); color: var(--white); }
+    .step-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: .78rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--gray-text);
+    }
+    .step-card h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: var(--navy);
+      text-transform: uppercase;
+      line-height: 1.2;
+    }
+    .step-card p {
+      font-size: .97rem;
+      color: var(--gray-text);
+      line-height: 1.75;
+      flex: 1;
+    }
+    .step-btn {
+      display: inline-block;
+      padding: .85rem 1.75rem;
+      border-radius: 4px;
+      font-family: 'Oswald', sans-serif;
+      font-size: .95rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      transition: background .15s, color .15s;
+      text-align: center;
+    }
+    .step-btn-gold { background: var(--gold); color: var(--navy); }
+    .step-btn-gold:hover { background: var(--gold-dark); }
+    .step-btn-navy { background: var(--navy); color: var(--white); }
+    .step-btn-navy:hover { background: #002a60; }
+
+    /* CONNECTOR ARROW */
+    .step-connector {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: var(--navy);
+      opacity: .3;
+      align-self: center;
+    }
+
+    /* QUESTIONS BAND */
+    .questions-band {
+      background: var(--navy);
+      padding: 3.5rem 1.5rem;
+      text-align: center;
+    }
+    .questions-band h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--white);
+      text-transform: uppercase;
+      margin-bottom: .75rem;
+    }
+    .questions-band p {
+      color: rgba(255,255,255,.78);
+      font-size: 1rem;
+      margin-bottom: 1.75rem;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .questions-band a.btn-contact {
+      display: inline-block;
+      padding: .8rem 2rem;
+      background: var(--gold);
+      color: var(--navy);
+      border-radius: 4px;
+      font-family: 'Oswald', sans-serif;
+      font-size: .95rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      transition: background .15s;
+    }
+    .questions-band a.btn-contact:hover { background: var(--gold-dark); }
+
+    /* FOOTER */
     .footer{background:var(--navy);color:var(--white);padding:3.5rem 1.5rem 1.25rem}
     .footer-top{max-width:var(--max-width);margin:0 auto;display:grid;grid-template-columns:auto 1fr auto;gap:2.5rem;align-items:start;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,.15)}
     .footer-logo{display:flex;align-items:center;gap:.75rem}
     .footer-logo img{height:48px;width:auto}
-    .footer-brand{font-family:'Oswald',sans-serif;font-size:.78rem;letter-spacing:.07em;text-transform:uppercase;line-height:1.5;color:var(--white)}
     .footer-nav{display:flex;flex-wrap:wrap;gap:.4rem 1.25rem;padding-top:.2rem}
     .footer-nav a{color:rgba(255,255,255,.72);font-family:'Oswald',sans-serif;font-size:.85rem;letter-spacing:.05em;text-transform:uppercase;transition:color .15s}
     .footer-nav a:hover{color:var(--gold)}
     .footer-info{font-size:.83rem;color:rgba(255,255,255,.7);line-height:1.65}
     .footer-info a{color:var(--gold)}
-    .footer-social{display:flex;gap:.85rem;align-items:center}
-    .footer-social a{color:rgba(255,255,255,.65);transition:color .15s}
-    .footer-social a:hover{color:var(--gold)}
     .footer-bottom{max-width:var(--max-width);margin:1.25rem auto 0;font-size:.73rem;color:rgba(255,255,255,.42);text-align:center}
-    @media(max-width:860px){.footer-top{grid-template-columns:1fr 1fr}.hamburger{display:flex}.nav-links{display:none;flex-direction:column;position:absolute;top:90px;left:0;right:0;background:var(--navy);padding:.75rem 1rem 1.25rem;gap:.1rem;box-shadow:0 4px 12px rgba(0,0,0,.3)}.nav-links.open{display:flex}.nav-links a{padding:.65rem 1rem}.nav-links a.nav-cta{margin-top:.5rem;padding-top:.75rem;border-top:1px solid rgba(255,255,255,.2)}}
-    @media(max-width:640px){.footer-top{grid-template-columns:1fr;gap:1.75rem}}
+
+    /* RESPONSIVE */
+    @media(max-width:860px){
+      .steps-grid{grid-template-columns:1fr}
+      .step-connector{transform:rotate(90deg)}
+      .footer-top{grid-template-columns:1fr 1fr}
+      .hamburger{display:flex}
+      .nav-links{display:none;flex-direction:column;position:absolute;top:90px;left:0;right:0;background:var(--navy);padding:.75rem 1rem 1.25rem;gap:.1rem;box-shadow:0 4px 12px rgba(0,0,0,.3)}
+      .nav-links.open{display:flex}
+      .nav-links a{padding:.65rem 1rem}
+      .nav-links a.nav-cta{margin-top:.5rem;padding-top:.75rem;border-top:1px solid rgba(255,255,255,.2)}
+    }
+    @media(max-width:640px){
+      .join-hero-content h1{font-size:2.2rem}
+      .footer-top{grid-template-columns:1fr;gap:1.75rem}
+    }
   </style>
 </head>
 <body>
@@ -67,8 +253,53 @@
       </ul>
     </div>
   </nav>
-  <div class="page-header"><h1>Join Pack 149</h1></div>
-  <div class="page-content"><p>Ready to join the adventure? Sign up at <a href='https://beascout.scouting.org/' target='_blank' rel='noopener' style='color:var(--navy);text-decoration:underline'>BeAScout.org</a> or <a href='contact.html' style='color:var(--navy);text-decoration:underline'>contact us</a> and we'll get you started.</p></div>
+
+  <!-- HERO -->
+  <section class="join-hero">
+    <div class="join-hero-overlay"></div>
+    <div class="join-hero-content">
+      <h1>Ready to Join the <span>Adventure?</span></h1>
+      <p>Pack 149 welcomes youth in Kindergarten through 5th grade. Joining takes just two steps — and we'll be with you every step of the way.</p>
+    </div>
+  </section>
+
+  <!-- STEPS -->
+  <section class="steps-section">
+    <div class="steps-header">
+      <p class="eyebrow">How to Join</p>
+      <h2>Two Simple Steps</h2>
+    </div>
+    <div class="steps-grid">
+
+      <!-- STEP 1 -->
+      <div class="step-card">
+        <div class="step-number">1</div>
+        <p class="step-label">Do This First</p>
+        <h3>Register with Pack 149</h3>
+        <p>Fill out our pack registration form so our leadership knows you're joining. This lets us add you to our communications, assign your scout to the right den, and make sure you're ready for your first meeting.</p>
+        <a href="https://form.jotform.com/241488066359164" target="_blank" rel="noopener" class="step-btn step-btn-gold">Register with Pack 149 &rsaquo;</a>
+      </div>
+
+      <!-- STEP 2 -->
+      <div class="step-card">
+        <div class="step-number">2</div>
+        <p class="step-label">Then Do This</p>
+        <h3>Register Nationally with BSA</h3>
+        <p>Complete the official BSA national registration at my.scouting.org. This enrolls your scout with the Boy Scouts of America, provides insurance coverage, and makes them an official member of the Scouting program.</p>
+        <a href="https://my.scouting.org/online-registration/5f6bb96f-9a8e-4081-8070-f8f8cb869fb3/applicant-type" target="_blank" rel="noopener" class="step-btn step-btn-navy">Register with BSA &rsaquo;</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- QUESTIONS -->
+  <section class="questions-band">
+    <h2>Have Questions?</h2>
+    <p>Our Cubmaster Stefan Bader is happy to answer any questions about the pack, dues, uniforms, or what to expect at your first meeting.</p>
+    <a href="mailto:info@bsapack149.org" class="btn-contact">Email Us</a>
+  </section>
+
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="footer-top">
       <div class="footer-logo">
@@ -88,6 +319,22 @@
     </div>
     <div class="footer-bottom"><p>&copy; 2026 Cub Scout Pack 149 &middot; Austin, Texas &middot; Chartered by Northwest Austin Rotary Club</p></div>
   </footer>
-  <script>(function(){var btn=document.getElementById('hamburger');var menu=document.getElementById('nav-links');btn.addEventListener('click',function(){var open=menu.classList.toggle('open');btn.setAttribute('aria-expanded',open?'true':'false')});document.addEventListener('click',function(e){if(!btn.contains(e.target)&&!menu.contains(e.target)){menu.classList.remove('open');btn.setAttribute('aria-expanded','false')}})})();</script>
+
+  <script>
+    (function(){
+      var btn = document.getElementById('hamburger');
+      var menu = document.getElementById('nav-links');
+      btn.addEventListener('click', function(){
+        var open = menu.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      document.addEventListener('click', function(e){
+        if(!btn.contains(e.target) && !menu.contains(e.target)){
+          menu.classList.remove('open');
+          btn.setAttribute('aria-expanded','false');
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
