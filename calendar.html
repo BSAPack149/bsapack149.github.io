@@ -21,8 +21,8 @@
     .nav-links{display:flex;align-items:center;gap:.15rem}
     .nav-links a{color:var(--white);font-family:'Oswald',sans-serif;font-size:.88rem;letter-spacing:.05em;text-transform:uppercase;padding:.45rem .7rem;border-radius:4px;transition:background .15s}
     .nav-links a:hover{background:rgba(255,255,255,.12)}
-    .nav-links a.nav-cta{background:var(--gold);color:var(--navy);font-weight:600;padding:.5rem 1rem;margin-left:.5rem}
-    .nav-links a.nav-cta:hover{background:var(--gold-dark)}
+    .nav-links a.nav-cta{color:var(--gold);font-weight:600}
+    .nav-links a.nav-cta:hover{background:rgba(255,255,255,.12);color:var(--gold)}
     .hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:.5rem}
     .hamburger span{display:block;width:24px;height:2px;background:var(--white);border-radius:2px}
     .page-header{background:var(--navy);padding:3rem 1.5rem}
@@ -44,7 +44,7 @@
     .footer-social a{color:rgba(255,255,255,.65);transition:color .15s}
     .footer-social a:hover{color:var(--gold)}
     .footer-bottom{max-width:var(--max-width);margin:1.25rem auto 0;font-size:.73rem;color:rgba(255,255,255,.42);text-align:center}
-    @media(max-width:860px){.footer-top{grid-template-columns:1fr 1fr}.hamburger{display:flex}.nav-links{display:none;flex-direction:column;position:absolute;top:90px;left:0;right:0;background:var(--navy);padding:.75rem 1rem 1.25rem;gap:.1rem;box-shadow:0 4px 12px rgba(0,0,0,.3)}.nav-links.open{display:flex}.nav-links a{padding:.65rem 1rem}.nav-links a.nav-cta{margin-left:0;margin-top:1rem;padding-top:1rem;text-align:center;border-top:1px solid rgba(255,255,255,.2)}}
+    @media(max-width:860px){.footer-top{grid-template-columns:1fr 1fr}.hamburger{display:flex}.nav-links{display:none;flex-direction:column;position:absolute;top:90px;left:0;right:0;background:var(--navy);padding:.75rem 1rem 1.25rem;gap:.1rem;box-shadow:0 4px 12px rgba(0,0,0,.3)}.nav-links.open{display:flex}.nav-links a{padding:.65rem 1rem}.nav-links a.nav-cta{margin-top:.5rem;padding-top:.75rem;border-top:1px solid rgba(255,255,255,.2)}}
     @media(max-width:640px){.footer-top{grid-template-columns:1fr;gap:1.75rem}}
   </style>
 </head>
