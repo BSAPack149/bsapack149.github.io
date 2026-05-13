@@ -10,14 +10,14 @@
   <style>
     :root{--navy:#003f87;--gold:#ffc72c;--gold-dark:#e5b020;--white:#fff;--gray-light:#f5f5f5;--gray-text:#555;--max-width:1100px}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:'Open Sans',sans-serif;color:#222;line-height:1.6}
+    body{font-family:'Open Sans',sans-serif;color:#222;line-height:1.6;scroll-behavior:smooth}
     a{text-decoration:none} img{display:block;max-width:100%} ul{list-style:none}
+
+    /* NAV */
     .navbar{background:var(--navy);position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.35)}
     .nav-container{max-width:var(--max-width);margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:90px}
     .nav-logo{display:flex;align-items:center;gap:.75rem;color:var(--white)}
     .nav-logo img{height:70px;width:auto}
-    .nav-brand{font-family:'Oswald',sans-serif;font-size:.72rem;line-height:1.3;letter-spacing:.06em;text-transform:uppercase}
-    .nav-brand strong{font-size:1.05rem;color:var(--gold);display:block}
     .nav-links{display:flex;align-items:center;gap:.15rem}
     .nav-links a{color:var(--white);font-family:'Oswald',sans-serif;font-size:.88rem;letter-spacing:.05em;text-transform:uppercase;padding:.45rem .7rem;border-radius:4px;transition:background .15s}
     .nav-links a:hover{background:rgba(255,255,255,.12)}
@@ -25,29 +25,108 @@
     .nav-links a.nav-cta:hover{background:rgba(255,255,255,.12);color:var(--gold)}
     .hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:.5rem}
     .hamburger span{display:block;width:24px;height:2px;background:var(--white);border-radius:2px}
-    .page-header{background:var(--navy);padding:3rem 1.5rem}
-    .page-header h1{font-family:'Oswald',sans-serif;font-size:2.5rem;font-weight:700;color:var(--white);text-transform:uppercase}
-    .page-content{max-width:var(--max-width);margin:0 auto;padding:4rem 1.5rem;color:var(--gray-text)}
-    .page-content p{font-size:1rem;line-height:1.75}
+
+    /* PAGE HEADER */
+    .page-header{background:var(--navy);padding:3.5rem 1.5rem 3rem}
+    .page-header h1{font-family:'Oswald',sans-serif;font-size:2.8rem;font-weight:700;color:var(--white);text-transform:uppercase;max-width:var(--max-width);margin:0 auto}
+    .page-header p{color:rgba(255,255,255,.72);max-width:var(--max-width);margin:.75rem auto 0;font-size:1.05rem}
+
+    /* MAIN LAYOUT */
+    .about-layout{max-width:var(--max-width);margin:0 auto;padding:3rem 1.5rem 5rem;display:grid;grid-template-columns:220px 1fr;gap:3.5rem;align-items:start}
+
+    /* SIDEBAR NAV */
+    .sidebar{position:sticky;top:106px}
+    .sidebar-nav{background:var(--gray-light);border-radius:8px;padding:1.25rem 0;overflow:hidden}
+    .sidebar-nav a{display:block;padding:.6rem 1.25rem;font-family:'Oswald',sans-serif;font-size:.82rem;letter-spacing:.05em;text-transform:uppercase;color:var(--gray-text);transition:background .15s,color .15s;border-left:3px solid transparent}
+    .sidebar-nav a:hover{background:rgba(0,0,0,.05);color:var(--navy)}
+    .sidebar-nav a.active{color:var(--navy);font-weight:600;border-left-color:var(--gold);background:rgba(0,63,135,.06)}
+    .sidebar-divider{height:1px;background:rgba(0,0,0,.08);margin:.5rem 0}
+
+    /* CONTENT */
+    .content-sections{display:flex;flex-direction:column;gap:4.5rem}
+    .content-section{scroll-margin-top:110px}
+    .section-eyebrow{font-family:'Oswald',sans-serif;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:.4rem}
+    .content-section h2{font-family:'Oswald',sans-serif;font-size:2rem;font-weight:700;color:var(--navy);text-transform:uppercase;margin-bottom:1.25rem;padding-bottom:.75rem;border-bottom:3px solid var(--gold)}
+    .content-section h3{font-family:'Oswald',sans-serif;font-size:1.2rem;font-weight:600;color:var(--navy);text-transform:uppercase;margin:1.75rem 0 .6rem}
+    .content-section p{color:var(--gray-text);line-height:1.8;margin-bottom:.9rem}
+    .content-section p:last-child{margin-bottom:0}
+
+    /* PHOTO PLACEHOLDER */
+    .photo-placeholder{background:var(--gray-light);border:2px dashed #ccc;border-radius:8px;height:280px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;color:#aaa;margin:1.75rem 0;font-family:'Oswald',sans-serif;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase}
+    .photo-placeholder svg{opacity:.35}
+    .photo-placeholder-half{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.75rem 0}
+    .photo-placeholder-half .photo-placeholder{margin:0;height:220px}
+
+    /* RANKS GRID */
+    .ranks-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:1.5rem 0}
+    .rank-card{background:var(--gray-light);border-radius:8px;padding:1.25rem 1rem;text-align:center;border-top:4px solid var(--gold)}
+    .rank-grade{font-size:.75rem;color:var(--gray-text);font-family:'Oswald',sans-serif;letter-spacing:.08em;text-transform:uppercase;margin-bottom:.25rem}
+    .rank-name{font-family:'Oswald',sans-serif;font-size:1.05rem;font-weight:700;color:var(--navy);text-transform:uppercase}
+
+    /* OATH/LAW BLOCK */
+    .oath-block{background:var(--navy);color:var(--white);border-radius:8px;padding:2rem 2rem 1.75rem;margin:1.5rem 0}
+    .oath-block h3{font-family:'Oswald',sans-serif;font-size:1rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:.75rem}
+    .oath-block p{color:rgba(255,255,255,.88);line-height:1.9;font-style:italic;margin:0}
+    .law-values{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
+    .law-value{background:rgba(255,199,44,.15);border:1px solid rgba(255,199,44,.4);color:var(--gold);font-family:'Oswald',sans-serif;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;padding:.3rem .75rem;border-radius:20px}
+
+    /* AIMS GRID */
+    .aims-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin:1.5rem 0}
+    .aim-card{background:var(--gray-light);border-radius:8px;padding:1.25rem 1.25rem 1rem;border-left:4px solid var(--navy)}
+    .aim-card h4{font-family:'Oswald',sans-serif;font-size:1rem;font-weight:700;color:var(--navy);text-transform:uppercase;margin-bottom:.4rem}
+    .aim-card p{font-size:.9rem;color:var(--gray-text);margin:0;line-height:1.65}
+
+    /* VOLUNTEER ROLES */
+    .roles-list{display:flex;flex-direction:column;gap:.75rem;margin:1.25rem 0}
+    .role-item{background:var(--gray-light);border-radius:6px;padding:1rem 1.25rem}
+    .role-item strong{font-family:'Oswald',sans-serif;font-size:.95rem;color:var(--navy);text-transform:uppercase;display:block;margin-bottom:.2rem}
+    .role-item p{font-size:.9rem;color:var(--gray-text);margin:0;line-height:1.65}
+
+    /* LINK BUTTON */
+    .btn-link{display:inline-block;margin-top:1rem;padding:.75rem 1.5rem;background:var(--navy);color:var(--white);border-radius:4px;font-family:'Oswald',sans-serif;font-size:.88rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;transition:background .15s}
+    .btn-link:hover{background:#002a60}
+
+    /* MOBILE PILL NAV */
+    .mobile-section-nav{display:none;position:sticky;top:90px;z-index:90;background:var(--white);border-bottom:1px solid #e0e0e0;overflow-x:auto;white-space:nowrap;padding:.6rem 1rem;-webkit-overflow-scrolling:touch}
+    .mobile-section-nav a{display:inline-block;padding:.4rem .9rem;font-family:'Oswald',sans-serif;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gray-text);border-radius:20px;border:1px solid #ddd;margin-right:.4rem;transition:background .15s,color .15s}
+    .mobile-section-nav a.active,.mobile-section-nav a:hover{background:var(--navy);color:var(--white);border-color:var(--navy)}
+
+    /* FOOTER */
     .footer{background:var(--navy);color:var(--white);padding:3.5rem 1.5rem 1.25rem}
     .footer-top{max-width:var(--max-width);margin:0 auto;display:grid;grid-template-columns:auto 1fr auto;gap:2.5rem;align-items:start;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,.15)}
     .footer-logo{display:flex;align-items:center;gap:.75rem}
     .footer-logo img{height:48px;width:auto}
-    .footer-brand{font-family:'Oswald',sans-serif;font-size:.78rem;letter-spacing:.07em;text-transform:uppercase;line-height:1.5;color:var(--white)}
     .footer-nav{display:flex;flex-wrap:wrap;gap:.4rem 1.25rem;padding-top:.2rem}
     .footer-nav a{color:rgba(255,255,255,.72);font-family:'Oswald',sans-serif;font-size:.85rem;letter-spacing:.05em;text-transform:uppercase;transition:color .15s}
     .footer-nav a:hover{color:var(--gold)}
     .footer-info{font-size:.83rem;color:rgba(255,255,255,.7);line-height:1.65}
     .footer-info a{color:var(--gold)}
-    .footer-social{display:flex;gap:.85rem;align-items:center}
-    .footer-social a{color:rgba(255,255,255,.65);transition:color .15s}
-    .footer-social a:hover{color:var(--gold)}
     .footer-bottom{max-width:var(--max-width);margin:1.25rem auto 0;font-size:.73rem;color:rgba(255,255,255,.42);text-align:center}
-    @media(max-width:860px){.footer-top{grid-template-columns:1fr 1fr}.hamburger{display:flex}.nav-links{display:none;flex-direction:column;position:absolute;top:90px;left:0;right:0;background:var(--navy);padding:.75rem 1rem 1.25rem;gap:.1rem;box-shadow:0 4px 12px rgba(0,0,0,.3)}.nav-links.open{display:flex}.nav-links a{padding:.65rem 1rem}.nav-links a.nav-cta{margin-top:.5rem;padding-top:.75rem;border-top:1px solid rgba(255,255,255,.2)}}
-    @media(max-width:640px){.footer-top{grid-template-columns:1fr;gap:1.75rem}}
+
+    /* RESPONSIVE */
+    @media(max-width:860px){
+      .about-layout{grid-template-columns:1fr;gap:0;padding-top:1rem}
+      .sidebar{display:none}
+      .mobile-section-nav{display:block}
+      .photo-placeholder-half{grid-template-columns:1fr}
+      .ranks-grid{grid-template-columns:repeat(2,1fr)}
+      .aims-grid{grid-template-columns:1fr}
+      .footer-top{grid-template-columns:1fr 1fr}
+      .hamburger{display:flex}
+      .nav-links{display:none;flex-direction:column;position:absolute;top:90px;left:0;right:0;background:var(--navy);padding:.75rem 1rem 1.25rem;gap:.1rem;box-shadow:0 4px 12px rgba(0,0,0,.3)}
+      .nav-links.open{display:flex}
+      .nav-links a{padding:.65rem 1rem}
+      .nav-links a.nav-cta{margin-top:.5rem;padding-top:.75rem;border-top:1px solid rgba(255,255,255,.2)}
+    }
+    @media(max-width:640px){
+      .ranks-grid{grid-template-columns:1fr 1fr}
+      .footer-top{grid-template-columns:1fr;gap:1.75rem}
+      .page-header h1{font-size:2rem}
+    }
   </style>
 </head>
 <body>
+
   <nav class="navbar" aria-label="Main navigation">
     <div class="nav-container">
       <a href="index.html" class="nav-logo">
@@ -67,8 +146,228 @@
       </ul>
     </div>
   </nav>
-  <div class="page-header"><h1>About Pack 149</h1></div>
-  <div class="page-content"><p>Pack 149 has been calling Spicewood Elementary home for over 40 years. Chartered by the Northwest Austin Rotary Club, we are one of the largest and most active packs in the Chisholm Trail District of the Capitol Area Council. More details coming soon. <a href='contact.html' style='color:var(--navy);text-decoration:underline'>Contact us</a> for more information.</p></div>
+
+  <div class="page-header">
+    <h1>About Pack 149 &amp; Scouting</h1>
+    <p>Everything you need to know about our pack and the Scouting America program.</p>
+  </div>
+
+  <nav class="mobile-section-nav" aria-label="Page sections">
+    <a href="#pack149">Our Pack</a>
+    <a href="#organized">Organization</a>
+    <a href="#ranks">Ranks</a>
+    <a href="#advancement">Advancement</a>
+    <a href="#uniform">Uniform</a>
+    <a href="#activities">Activities</a>
+    <a href="#oath-law">Oath &amp; Law</a>
+    <a href="#aims">Aims &amp; Benefits</a>
+    <a href="#volunteer">Volunteer</a>
+  </nav>
+
+  <div class="about-layout">
+
+    <aside class="sidebar">
+      <nav class="sidebar-nav" aria-label="Page sections">
+        <a href="#pack149" class="active">Our Pack</a>
+        <a href="#organized">How We're Organized</a>
+        <div class="sidebar-divider"></div>
+        <a href="#ranks">Ranks</a>
+        <a href="#advancement">Adventures &amp; Advancement</a>
+        <a href="#uniform">The Uniform</a>
+        <div class="sidebar-divider"></div>
+        <a href="#activities">Pack Activities</a>
+        <a href="#oath-law">Scout Oath &amp; Law</a>
+        <a href="#aims">Aims &amp; Benefits</a>
+        <div class="sidebar-divider"></div>
+        <a href="#volunteer">Become a Volunteer</a>
+      </nav>
+    </aside>
+
+    <div class="content-sections">
+
+      <section class="content-section" id="pack149">
+        <p class="section-eyebrow">Who We Are</p>
+        <h2>About Pack 149</h2>
+        <p>Pack 149 has been part of the Spicewood Elementary community for over 40 years, making it one of the longest-running and most active Cub Scout packs in Northwest Austin. We are chartered by the <strong>Northwest Austin Rotary Club</strong> and operate within the <strong>Chisholm Trail District</strong> of the <strong>Capitol Area Council</strong> of Scouting America.</p>
+        <p>Our pack is large, welcoming, and driven by dedicated parent volunteers who believe in giving every scout a year full of memorable experiences. From campouts and Pinewood Derby to archery and the Blue &amp; Gold Banquet, Pack 149 offers a full calendar of activities that the whole family can enjoy.</p>
+        <p>Pack meetings are held <strong>one Tuesday per month</strong> in the Spicewood Elementary cafeteria. Dens meet separately <strong>one to two times per month</strong> during the school year for rank-specific activities and advancement work.</p>
+        <div class="photo-placeholder">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          Pack Photo — Coming Soon
+        </div>
+      </section>
+
+      <section class="content-section" id="organized">
+        <p class="section-eyebrow">Structure</p>
+        <h2>How We're Organized</h2>
+        <p>Scouting America uses a straightforward structure that makes it easy for families to get involved and for scouts to feel a sense of belonging at every level.</p>
+        <h3>The Pack</h3>
+        <p>The pack is the full group — all scouts, families, and leaders together. Pack 149 includes scouts from Kindergarten through 5th grade. The whole pack gathers monthly for pack meetings, which are larger community events where dens share what they've been working on and celebrate achievements together.</p>
+        <h3>The Den</h3>
+        <p>Within the pack, scouts are organized into smaller groups called <strong>dens</strong>, typically made up of six to eight scouts who are the same age and rank. A den is where scouts do most of their learning, earning adventures, and building friendships. Each den is led by volunteer Den Leaders — usually parents from that group.</p>
+        <h3>The Pack Committee</h3>
+        <p>Behind every great pack is a team of parent volunteers called the <strong>Pack Committee</strong>. The committee handles the administrative and planning side of things — organizing events, managing finances, coordinating with the council, and supporting den leaders so they can focus entirely on the scouts. If you want to be involved but prefer organizing over leading a den, the committee is a great fit.</p>
+        <h3>Our Chartered Organization</h3>
+        <p>Every Scouting America unit is sponsored by a <strong>chartered organization</strong> — a community group that partners with Scouting to serve local youth. Pack 149 is chartered by the <strong>Northwest Austin Rotary Club</strong>, which shares our values of community service and youth development.</p>
+        <div class="photo-placeholder">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          Pack Meeting Photo — Coming Soon
+        </div>
+      </section>
+
+      <section class="content-section" id="ranks">
+        <p class="section-eyebrow">Grades K–5</p>
+        <h2>Cub Scout Ranks</h2>
+        <p>Cub Scouting is organized by grade level, so every scout is always with peers at the same stage of their journey. There are six ranks — one for each grade from Kindergarten through 5th grade. Scouts earn their rank each year by completing a set of required <strong>Adventures</strong>.</p>
+        <div class="ranks-grid">
+          <div class="rank-card"><p class="rank-grade">Kindergarten</p><p class="rank-name">Lion</p></div>
+          <div class="rank-card"><p class="rank-grade">1st Grade</p><p class="rank-name">Tiger</p></div>
+          <div class="rank-card"><p class="rank-grade">2nd Grade</p><p class="rank-name">Wolf</p></div>
+          <div class="rank-card"><p class="rank-grade">3rd Grade</p><p class="rank-name">Bear</p></div>
+          <div class="rank-card"><p class="rank-grade">4th Grade</p><p class="rank-name">Webelos</p></div>
+          <div class="rank-card"><p class="rank-grade">5th Grade</p><p class="rank-name">Arrow of Light</p></div>
+        </div>
+        <p>At the end of 5th grade, Arrow of Light scouts have the opportunity to <strong>cross over</strong> into a Scouts BSA Troop, continuing their Scouting journey through middle and high school. Pack 149 celebrates this milestone each January with a traditional crossover ceremony.</p>
+      </section>
+
+      <section class="content-section" id="advancement">
+        <p class="section-eyebrow">Learning &amp; Growing</p>
+        <h2>Adventures &amp; Advancement</h2>
+        <p>The Scouting America advancement program is built around <strong>Adventures</strong> — hands-on activities and challenges that scouts complete to earn their rank and grow their skills.</p>
+        <h3>What Is an Adventure?</h3>
+        <p>An Adventure is a themed set of activities that scouts complete together, usually over one or more den meetings. Adventures cover a wide range of topics — from outdoor skills and science experiments to community service and personal fitness. Each adventure is designed to be fun, age-appropriate, and genuinely meaningful.</p>
+        <h3>Required vs. Elective Adventures</h3>
+        <p>Each rank has <strong>six required Adventures</strong> that every scout must complete, plus <strong>elective Adventures</strong> that scouts can choose based on their interests. The first required Adventure at every rank is <strong>Bobcat</strong>, which introduces scouts to the Scout Oath, Scout Law, and the basics of Scouting.</p>
+        <h3>How Scouts Earn Their Rank</h3>
+        <p>Once a scout has completed the required Adventures for their grade level, they earn their rank badge — worn with pride on their uniform. Ranks are recognized at pack meetings and celebrated at the Blue &amp; Gold Banquet each spring.</p>
+        <div class="photo-placeholder-half">
+          <div class="photo-placeholder">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+            Adventure Activity — Coming Soon
+          </div>
+          <div class="photo-placeholder">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+            Awards Ceremony — Coming Soon
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section" id="uniform">
+        <p class="section-eyebrow">What to Wear</p>
+        <h2>The Uniform</h2>
+        <p>Pack 149 is a <strong>"waist-up" uniform pack</strong>, meaning scouts wear the official uniform shirt, neckerchief, and belt — any pants or shorts are fine.</p>
+        <h3>Class A — Field Uniform</h3>
+        <p>The <strong>Class A</strong> (also called the Field Uniform) is the official Scouting America shirt worn to all pack meetings, den meetings, ceremonies, and community events. Lion, Tiger, Wolf, and Bear scouts wear the blue Cub Scout shirt. Webelos and Arrow of Light scouts wear a tan shirt. The neckerchief, slide, and rank patches are all part of the Class A.</p>
+        <h3>Class B — Activity Uniform</h3>
+        <p>The <strong>Class B</strong> is the Pack 149 t-shirt — the navy shirt with the Pack 149 Austin, TX logo you'll see scouts wearing at campouts, hikes, and active events where the official shirt isn't practical. Class B shirts are typically distributed at the start of the scouting year.</p>
+        <div class="photo-placeholder">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          Uniform Photo — Coming Soon
+        </div>
+      </section>
+
+      <section class="content-section" id="activities">
+        <p class="section-eyebrow">What We Do</p>
+        <h2>Pack Activities</h2>
+        <p>Pack 149 runs a full program year packed with activities that scouts and families look forward to. Our annual calendar includes something for everyone — outdoor adventures, creative projects, community traditions, and celebrations.</p>
+        <p>Some of our signature events include the <strong>Pinewood Derby</strong>, <strong>Fall Campout</strong> at Camp Tahuaya, the <strong>Blue &amp; Gold Banquet</strong>, <strong>Raingutter Regatta</strong>, archery, swimming at El Salido Pool, and the beloved <strong>Holiday Bazaar</strong>. Family members are always welcome — Scouting is a family program.</p>
+        <div class="photo-placeholder">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          Activity Photo — Coming Soon
+        </div>
+        <a href="programs.html" class="btn-link">See Full Programs &amp; Activities &rsaquo;</a>
+      </section>
+
+      <section class="content-section" id="oath-law">
+        <p class="section-eyebrow">Our Promise</p>
+        <h2>Scout Oath &amp; Scout Law</h2>
+        <p>The Scout Oath and Scout Law are the heart of Scouting. Scouts recite them at every meeting as a reminder of the values they are working to live by — not just in Scouting, but in everyday life.</p>
+        <div class="oath-block">
+          <h3>Scout Oath</h3>
+          <p>On my honor I will do my best<br>To do my duty to God and my country<br>and to obey the Scout Law;<br>To help other people at all times;<br>To keep myself physically strong,<br>mentally awake, and morally straight.</p>
+        </div>
+        <div class="oath-block" style="margin-top:1rem">
+          <h3>Scout Law</h3>
+          <p style="margin-bottom:.75rem">A Scout is:</p>
+          <div class="law-values">
+            <span class="law-value">Trustworthy</span>
+            <span class="law-value">Loyal</span>
+            <span class="law-value">Helpful</span>
+            <span class="law-value">Friendly</span>
+            <span class="law-value">Courteous</span>
+            <span class="law-value">Kind</span>
+            <span class="law-value">Obedient</span>
+            <span class="law-value">Cheerful</span>
+            <span class="law-value">Thrifty</span>
+            <span class="law-value">Brave</span>
+            <span class="law-value">Clean</span>
+            <span class="law-value">Reverent</span>
+          </div>
+        </div>
+        <h3>Cub Scout Motto</h3>
+        <p>The Cub Scout motto is simply: <strong>"Do Your Best."</strong> It's a powerful reminder that Scouting is about personal growth — not competition. Every scout's best looks different, and that's exactly the point.</p>
+      </section>
+
+      <section class="content-section" id="aims">
+        <p class="section-eyebrow">Why It Matters</p>
+        <h2>Aims &amp; Benefits of Cub Scouting</h2>
+        <p>Scouting America's Cub Scout program has four core aims — the outcomes every activity and adventure is designed to develop in young people.</p>
+        <div class="aims-grid">
+          <div class="aim-card">
+            <h4>Character</h4>
+            <p>Scouts develop honesty, respect, and a strong moral compass through the Scout Oath, Scout Law, and the examples set by their leaders and peers.</p>
+          </div>
+          <div class="aim-card">
+            <h4>Citizenship</h4>
+            <p>Through service projects, flag ceremonies, and community involvement, scouts learn what it means to contribute to something bigger than themselves.</p>
+          </div>
+          <div class="aim-card">
+            <h4>Physical Fitness</h4>
+            <p>From hikes and swim days to the Fitness Challenge, scouts learn healthy habits and the value of staying active in fun, age-appropriate ways.</p>
+          </div>
+          <div class="aim-card">
+            <h4>Leadership</h4>
+            <p>Scouts take on responsibilities within their dens and the pack, building confidence and learning to work as part of a team from an early age.</p>
+          </div>
+        </div>
+        <h3>What Families Say</h3>
+        <p>Families who stay in Scouting consistently point to the same benefits: their kids make lasting friendships, gain confidence, discover new interests, and develop a sense of responsibility that carries into school and beyond. And parents often say they get just as much out of it as their scouts do.</p>
+        <div class="photo-placeholder">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          Family Photo — Coming Soon
+        </div>
+      </section>
+
+      <section class="content-section" id="volunteer">
+        <p class="section-eyebrow">Get Involved</p>
+        <h2>Become a Leader or Volunteer</h2>
+        <p>Pack 149 runs entirely on the energy and commitment of parent volunteers. There is no paid staff — every meeting, campout, and event happens because a parent stepped up. If your scout is in the pack, we'd love to have you involved.</p>
+        <p>No prior Scouting experience is required. Scouting America provides training for every role, and our experienced leaders are always ready to help new volunteers get started.</p>
+        <div class="roles-list">
+          <div class="role-item">
+            <strong>Cubmaster</strong>
+            <p>The Cubmaster leads the pack program and runs pack meetings. This is the most visible leadership role in the pack and works closely with all den leaders and the pack committee.</p>
+          </div>
+          <div class="role-item">
+            <strong>Den Leader</strong>
+            <p>Den leaders guide a specific age group through their adventures and run den meetings. This is one of the most rewarding volunteer roles — you get to watch the same group of scouts grow over an entire year.</p>
+          </div>
+          <div class="role-item">
+            <strong>Pack Committee Member</strong>
+            <p>Committee members handle the behind-the-scenes work: event planning, finances, communications, and pack administration. Great for parents who want to contribute without leading a den directly.</p>
+          </div>
+          <div class="role-item">
+            <strong>Event Helper</strong>
+            <p>Not ready for a standing role? Helping at a single event — the Pinewood Derby, a campout, the Bobcat ceremony — is always appreciated and a great way to get a feel for the pack before committing to more.</p>
+          </div>
+        </div>
+        <p>All adult volunteers must complete <strong>Youth Protection Training (YPT)</strong>, a free online course from Scouting America that takes about 90 minutes. It is required before participating in any official Scouting activity.</p>
+        <a href="contact.html" class="btn-link">Contact Us to Get Involved &rsaquo;</a>
+      </section>
+
+    </div>
+  </div>
+
   <footer class="footer">
     <div class="footer-top">
       <div class="footer-logo">
@@ -88,6 +387,35 @@
     </div>
     <div class="footer-bottom"><p>&copy; 2026 Cub Scout Pack 149 &middot; Austin, Texas &middot; Chartered by Northwest Austin Rotary Club</p></div>
   </footer>
-  <script>(function(){var btn=document.getElementById('hamburger');var menu=document.getElementById('nav-links');btn.addEventListener('click',function(){var open=menu.classList.toggle('open');btn.setAttribute('aria-expanded',open?'true':'false')});document.addEventListener('click',function(e){if(!btn.contains(e.target)&&!menu.contains(e.target)){menu.classList.remove('open');btn.setAttribute('aria-expanded','false')}})})();</script>
+
+  <script>
+    (function(){
+      var btn = document.getElementById('hamburger');
+      var menu = document.getElementById('nav-links');
+      btn.addEventListener('click', function(){
+        var open = menu.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      document.addEventListener('click', function(e){
+        if(!btn.contains(e.target) && !menu.contains(e.target)){
+          menu.classList.remove('open');
+          btn.setAttribute('aria-expanded','false');
+        }
+      });
+    })();
+
+    (function(){
+      var sections = document.querySelectorAll('.content-section');
+      var links = document.querySelectorAll('.sidebar-nav a, .mobile-section-nav a');
+      function setActive(){
+        var scrollY = window.scrollY + 160;
+        var current = '';
+        sections.forEach(function(s){ if(s.offsetTop <= scrollY) current = s.id; });
+        links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href') === '#' + current); });
+      }
+      window.addEventListener('scroll', setActive, {passive:true});
+      setActive();
+    })();
+  </script>
 </body>
 </html>
