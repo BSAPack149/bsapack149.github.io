@@ -86,6 +86,17 @@
     .btn-link{display:inline-block;margin-top:1rem;padding:.75rem 1.5rem;background:var(--navy);color:var(--white);border-radius:4px;font-family:'Oswald',sans-serif;font-size:.88rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;transition:background .15s}
     .btn-link:hover{background:#002a60}
 
+    /* UNIFORM SHOWCASE */
+    .uniform-feature{display:flex;align-items:center;gap:2rem;background:var(--gray-light);border-radius:10px;padding:1.5rem 1.75rem;margin:1.25rem 0;border-left:4px solid var(--gold)}
+    .uniform-feature img{width:180px;flex-shrink:0;border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,.12)}
+    .uniform-badge{display:inline-block;background:var(--navy);color:var(--gold);font-family:'Oswald',sans-serif;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;padding:.22rem .65rem;border-radius:20px;margin-bottom:.6rem}
+    .uniform-feature p{font-size:.94rem;color:var(--gray-text);margin:0;line-height:1.75}
+    .uniform-variants{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin:1.25rem 0}
+    .uniform-variant{background:var(--gray-light);border-radius:10px;padding:1.5rem 1.25rem;text-align:center;border-top:4px solid var(--navy)}
+    .uniform-variant img{width:180px;height:180px;object-fit:cover;border-radius:50%;margin:0 auto .9rem;display:block;box-shadow:0 4px 20px rgba(0,0,0,.15)}
+    .uniform-variant-name{font-family:'Oswald',sans-serif;font-size:1rem;font-weight:700;color:var(--navy);text-transform:uppercase}
+    .uniform-variant-grades{font-size:.82rem;color:var(--gray-text);margin-top:.25rem;line-height:1.5}
+
     /* MOBILE PILL NAV */
     .mobile-section-nav{display:none;position:sticky;top:90px;z-index:90;background:var(--white);border-bottom:1px solid #e0e0e0;overflow-x:auto;white-space:nowrap;padding:.6rem 1rem;-webkit-overflow-scrolling:touch}
     .mobile-section-nav a{display:inline-block;padding:.4rem .9rem;font-family:'Oswald',sans-serif;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gray-text);border-radius:20px;border:1px solid #ddd;margin-right:.4rem;transition:background .15s,color .15s}
@@ -111,6 +122,8 @@
       .photo-placeholder-half{grid-template-columns:1fr}
       .ranks-grid{grid-template-columns:repeat(2,1fr)}
       .aims-grid{grid-template-columns:1fr}
+      .uniform-feature{flex-direction:column;gap:1.25rem}
+      .uniform-feature img{width:140px}
       .footer-top{grid-template-columns:1fr 1fr}
       .hamburger{display:flex}
       .nav-links{display:none;flex-direction:column;position:absolute;top:90px;left:0;right:0;background:var(--navy);padding:.75rem 1rem 1.25rem;gap:.1rem;box-shadow:0 4px 12px rgba(0,0,0,.3)}
@@ -120,6 +133,7 @@
     }
     @media(max-width:640px){
       .ranks-grid{grid-template-columns:1fr 1fr}
+      .uniform-variants{grid-template-columns:1fr}
       .footer-top{grid-template-columns:1fr;gap:1.75rem}
       .page-header h1{font-size:2rem}
     }
@@ -256,19 +270,33 @@
         <p class="section-eyebrow">What to Wear</p>
         <h2>The Uniform</h2>
         <p>Pack 149 is a <strong>"waist-up" uniform pack</strong>, meaning scouts wear their uniform shirt, neckerchief, and belt; any pants or shorts are fine.</p>
+
         <h3>Lion Uniform (Kindergarten)</h3>
-        <p><strong>Lion scouts do not yet wear the Class A uniform.</strong> Lions wear the <strong>Lion t-shirt</strong>, a navy blue shirt with the Lion cub logo, specific to the Kindergarten rank. The Class A field uniform begins at Tiger (1st grade).</p>
-        <div style="margin:1.25rem 0">
-          <img src="lion-shirt.jpg" alt="Lion Cub Scout t-shirt" style="max-width:260px;border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,.12)">
+        <div class="uniform-feature">
+          <img src="lion-shirt.jpg" alt="Lion Cub Scout t-shirt">
+          <div>
+            <span class="uniform-badge">Kindergarten Only</span>
+            <p><strong>Lion scouts do not yet wear the Class A uniform.</strong> Lions wear the <strong>Lion t-shirt</strong>, a navy blue shirt with the Lion cub logo specific to the Kindergarten rank. The Class A field uniform begins at Tiger in 1st grade.</p>
+          </div>
         </div>
+
         <h3>Class A: Field Uniform</h3>
-        <p>The <strong>Class A</strong> (also called the Field Uniform) is the official Scouting America shirt worn to all pack meetings, den meetings, ceremonies, and community events. Tiger, Wolf, and Bear scouts wear the blue Cub Scout shirt. Webelos and Arrow of Light scouts wear a tan shirt. The neckerchief, slide, and rank patches are all part of the Class A.</p>
+        <p>The <strong>Class A</strong> (also called the Field Uniform) is the official Scouting America shirt worn to pack meetings, den meetings, ceremonies, and community events. The neckerchief, slide, and rank patches are all part of the Class A. There are two shirt variants depending on your scout's rank:</p>
+        <div class="uniform-variants">
+          <div class="uniform-variant">
+            <img src="class-a-uniform.webp" alt="Blue Cub Scout Class A shirt">
+            <p class="uniform-variant-name">Blue Shirt</p>
+            <p class="uniform-variant-grades">Tiger, Wolf &amp; Bear<br>Grades 1&ndash;3</p>
+          </div>
+          <div class="uniform-variant">
+            <img src="aol-uniform.webp" alt="Tan Webelos and Arrow of Light Class A shirt">
+            <p class="uniform-variant-name">Tan Shirt</p>
+            <p class="uniform-variant-grades">Webelos &amp; Arrow of Light<br>Grades 4&ndash;5</p>
+          </div>
+        </div>
+
         <h3>Class B: Activity Uniform</h3>
         <p>The <strong>Class B</strong> is the Pack 149 t-shirt: the navy shirt with the Pack 149 Austin, TX logo you'll see scouts wearing at campouts, hikes, and active events where the official shirt isn't practical. Class B shirts are typically distributed at the start of the scouting year.</p>
-        <div class="photo-placeholder">
-          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-          Uniform Photo, Coming Soon
-        </div>
       </section>
 
       <section class="content-section" id="activities">
