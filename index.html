@@ -358,6 +358,15 @@
       font-weight: 700;
       line-height: 1.05;
     }
+    .event-weekday {
+      display: block;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+      margin-top: 0.15rem;
+    }
     .event-info h3 {
       font-family: 'Oswald', sans-serif;
       font-size: 1.1rem;
@@ -675,8 +684,9 @@
           return;
         }
         grid.innerHTML = upcoming.map(function (e) {
-          var month = e.dtstart.toLocaleString('en-US', { month: 'short', timeZone: EVENT_TZ }).toUpperCase();
-          var day   = e.dtstart.toLocaleString('en-US', { day: 'numeric', timeZone: EVENT_TZ });
+          var month   = e.dtstart.toLocaleString('en-US', { month: 'short', timeZone: EVENT_TZ }).toUpperCase();
+          var day     = e.dtstart.toLocaleString('en-US', { day: 'numeric', timeZone: EVENT_TZ });
+          var weekday = e.dtstart.toLocaleString('en-US', { weekday: 'short', timeZone: EVENT_TZ }).toUpperCase();
 
           var when;
           if (e.allDay) {
@@ -690,8 +700,9 @@
 
           return '<div class="event-card">'
             + '<div class="event-date">'
-            + '<span class="event-month">' + month + '</span>'
-            + '<span class="event-day">'   + day   + '</span>'
+            + '<span class="event-month">'   + month   + '</span>'
+            + '<span class="event-day">'     + day     + '</span>'
+            + '<span class="event-weekday">' + weekday + '</span>'
             + '</div>'
             + '<div class="event-info">'
             + '<h3>' + e.summary + '</h3>'
