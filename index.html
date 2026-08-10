@@ -371,6 +371,11 @@
       font-size: 0.85rem;
       color: var(--gray-text);
     }
+    .event-time {
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 0.25rem;
+    }
     #events-loading {
       color: var(--gray-text);
       font-size: 0.9rem;
@@ -603,8 +608,17 @@
 
     // Load upcoming events from BSA calendar feed
     (function () {
-      var ICS_URL = 'https://api.scouting.org/advancements/events/calendar/19132';
+      // Fetched cross-origin from api.scouting.org previously, but that API
+      // doesn't send CORS headers so browsers block it. A GitHub Actions
+      // workflow (.github/workflows/update-events.yml) refreshes this
+      // same-origin snapshot on a schedule instead.
+      var ICS_URL = 'events.ics';
       var grid = document.getElementById('events-grid');
+
+      // Pack 149 meets in Austin, TX, so event times/dates are always shown
+      // in Central time regardless of the viewer's own device timezone
+      // (same reasoning as the ctz=America/Chicago fix on calendar.html).
+      var EVENT_TZ = 'America/Chicago';
 
       function parseICSDate(value) {
         value = value.trim();
@@ -622,6 +636,12 @@
         return new Date(s);
       }
 
+      function formatTime(date) {
+        return date.toLocaleTimeString('en-US', {
+          hour: 'numeric', minute: '2-digit', timeZone: EVENT_TZ
+        });
+      }
+
       function parseICS(text) {
         text = text.replace(/\r\n[ \t]/g, '').replace(/\r\n/g, '\n').replace(/\n[ \t]/g, '');
         var events = [];
@@ -634,9 +654,10 @@
             var key = line.substring(0, ci).split(';')[0].toUpperCase().trim();
             var val = line.substring(ci + 1).trim();
             if (key === 'SUMMARY')     ev.summary     = val;
-            if (key === 'DTSTART')     ev.dtstart     = parseICSDate(val);
-            if (key === 'LOCATION')    ev.location    = val;
-            if (key === 'DESCRIPTION') ev.description = val.replace(/\\n/g, ' ').replace(/\\,/g, ',').replace(/\\/g, '').substring(0, 90);
+            if (key === 'DTSTART')   { ev.dtstart     = parseICSDate(val); ev.allDay = val.length === 8; }
+            if (key === 'DTEND')      ev.dtend       = parseICSDate(val);
+            if (key === 'LOCATION')   ev.location    = val;
+            if (key === 'DESCRIPTION') ev.description = val.replace(/\\n/g, ' ').replace(/\\,/g, ',').replace(/\\/g, '').trim();
           });
           if (ev.summary && ev.dtstart) events.push(ev);
         });
@@ -654,10 +675,19 @@
           return;
         }
         grid.innerHTML = upcoming.map(function (e) {
-          var month = e.dtstart.toLocaleString('en-US', { month: 'short' }).toUpperCase();
-          var day   = e.dtstart.getDate();
-          var desc  = e.description || e.location
-            || e.dtstart.toLocaleString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
+          var month = e.dtstart.toLocaleString('en-US', { month: 'short', timeZone: EVENT_TZ }).toUpperCase();
+          var day   = e.dtstart.toLocaleString('en-US', { day: 'numeric', timeZone: EVENT_TZ });
+
+          var when;
+          if (e.allDay) {
+            when = 'All day';
+          } else {
+            when = formatTime(e.dtstart) + (e.dtend ? ' – ' + formatTime(e.dtend) : '');
+          }
+          if (e.location) when += ' · ' + e.location;
+
+          var descHtml = e.description ? '<p>' + e.description + '</p>' : '';
+
           return '<div class="event-card">'
             + '<div class="event-date">'
             + '<span class="event-month">' + month + '</span>'
@@ -665,7 +695,8 @@
             + '</div>'
             + '<div class="event-info">'
             + '<h3>' + e.summary + '</h3>'
-            + '<p>'  + desc      + '</p>'
+            + '<p class="event-time">' + when + '</p>'
+            + descHtml
             + '</div></div>';
         }).join('');
       }
