@@ -4,17 +4,6 @@ PRODID:-//advancements.scouting.org///NONSGML v1.0//EN
 CALSCALE:GREGORIAN
 X-WR-CALNAME:Pack 0149 (Family)
 BEGIN:VEVENT
-UID:6498209@advancements.scouting.org
-CREATED:20250801T000921Z
-ORGANIZER:Chad Hager
-DTSTART:20250811T000000Z
-DTEND:20250811T010000Z
-SUMMARY:Pack Leader Meeting
-DESCRIPTION:Pack Leader Meeting\nTopic of this meeting is our JSN!\n\nScout Pack Leader Meeting\nSunday\, August 10 · 7:00  8:00pm\nTime zone: America/Chicago\nGoogle Meet joining info\nVideo call link: https://meet.google.com/nvg-gudg-ves\n
-URL:https://advancements.scouting.org/calendar/event/6498209
-LOCATION:Hope Church
-END:VEVENT
-BEGIN:VEVENT
 UID:6573681@advancements.scouting.org
 CREATED:20250824T163127Z
 ORGANIZER:Chad Hager
