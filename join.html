@@ -158,15 +158,56 @@
     .step-btn-navy { background: var(--navy); color: var(--white); }
     .step-btn-navy:hover { background: #002a60; }
 
-    /* CONNECTOR ARROW */
-    .step-connector {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2rem;
+    /* REGISTER CARD (single step) */
+    .register-card {
+      max-width: 760px;
+      margin: 0 auto;
+      background: var(--white);
+      border-radius: 8px;
+      padding: 2.5rem 2.5rem 3rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,.08);
+      text-align: center;
+    }
+    .register-card h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.7rem;
+      font-weight: 700;
       color: var(--navy);
-      opacity: .3;
-      align-self: center;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .register-card > p.register-intro {
+      font-size: 1rem;
+      color: var(--gray-text);
+      line-height: 1.75;
+      max-width: 560px;
+      margin: 0 auto 2rem;
+    }
+    .register-info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.75rem;
+      text-align: left;
+      margin-bottom: 2.25rem;
+    }
+    .register-info {
+      background: var(--gray-light);
+      border-radius: 6px;
+      padding: 1.5rem;
+    }
+    .register-info-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: .8rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      font-weight: 600;
+      margin-bottom: .5rem;
+    }
+    .register-info p:last-child {
+      font-size: .93rem;
+      color: var(--gray-text);
+      line-height: 1.65;
     }
 
     /* QUESTIONS BAND */
@@ -221,7 +262,7 @@
     /* RESPONSIVE */
     @media(max-width:860px){
       .steps-grid{grid-template-columns:1fr}
-      .step-connector{transform:rotate(90deg)}
+      .register-info-grid{grid-template-columns:1fr}
       .footer-top{grid-template-columns:1fr 1fr}
       .hamburger{display:flex}
       .nav-links{display:none;flex-direction:column;position:absolute;top:90px;left:0;right:0;background:var(--navy);padding:.75rem 1rem 1.25rem;gap:.1rem;box-shadow:0 4px 12px rgba(0,0,0,.3)}
@@ -261,7 +302,7 @@
     <div class="join-hero-overlay"></div>
     <div class="join-hero-content">
       <h1>Ready to Join the <span>Adventure?</span></h1>
-      <p>Pack 149 welcomes youth in Kindergarten through 5th grade. Joining takes just two steps — and we'll be with you every step of the way.</p>
+      <p>Pack 149 welcomes youth in Kindergarten through 5th grade. Joining starts with one form. Fill it out and we'll guide you through the rest.</p>
     </div>
   </section>
 
@@ -269,28 +310,25 @@
   <section class="steps-section">
     <div class="steps-header">
       <p class="eyebrow">How to Join</p>
-      <h2>Two Simple Steps</h2>
+      <h2>Start Here</h2>
     </div>
-    <div class="steps-grid">
 
-      <!-- STEP 1 -->
-      <div class="step-card">
-        <div class="step-number">1</div>
-        <p class="step-label">Do This First</p>
-        <h3>Register with Pack 149</h3>
-        <p>Fill out our pack registration form so our leadership knows you're joining. This lets us add you to our communications, assign your scout to the right den, and make sure you're ready for your first meeting.</p>
-        <a href="https://form.jotform.com/241488066359164" target="_blank" rel="noopener" class="step-btn step-btn-gold">Register with Pack 149 &rsaquo;</a>
+    <div class="register-card">
+      <h3>Register with Pack 149</h3>
+      <p class="register-intro">Fill out our online registration form to join Pack 149 for the upcoming Scouting year. If you're registering more than one child, please complete the form once for each scout.</p>
+
+      <div class="register-info-grid">
+        <div class="register-info">
+          <p class="register-info-label">New Scouts</p>
+          <p>After you submit this form, we'll send you instructions to complete your official Scouting America registration at my.scouting.org, which is what makes your scout an official member of the program.</p>
+        </div>
+        <div class="register-info">
+          <p class="register-info-label">Returning Scouts</p>
+          <p>Your Scouting America membership renews separately based on your current expiration date. Scouting America will email you directly when it's time to renew, so no extra action is needed here beyond this form.</p>
+        </div>
       </div>
 
-      <!-- STEP 2 -->
-      <div class="step-card">
-        <div class="step-number">2</div>
-        <p class="step-label">Then Do This</p>
-        <h3>Register Nationally with Scouting America</h3>
-        <p>Complete the official Scouting America national registration at my.scouting.org. This enrolls your scout with Scouting America and makes them an official member of the Scouting program.</p>
-        <a href="https://my.scouting.org/online-registration/5f6bb96f-9a8e-4081-8070-f8f8cb869fb3/applicant-type" target="_blank" rel="noopener" class="step-btn step-btn-navy">Register with Scouting America &rsaquo;</a>
-      </div>
-
+      <a href="https://www.jotform.com/form/262218006677054" target="_blank" rel="noopener" class="step-btn step-btn-gold">Register with Pack 149 &rsaquo;</a>
     </div>
   </section>
 
