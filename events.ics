@@ -322,4 +322,15 @@ DESCRIPTION:A pack-wide skills competition to close out the program year. Scouts
 URL:https://advancements.scouting.org/calendar/event/7081316
 LOCATION:Spicewood Elementary
 END:VEVENT
+BEGIN:VEVENT
+UID:7151096@advancements.scouting.org
+CREATED:20260831T192512Z
+ORGANIZER:Rocky Clark
+DTSTART:20260913T200000Z
+DTEND:20260913T220000Z
+SUMMARY:DEN 2 Meeting
+DESCRIPTION:First Aid #1 and Bobcat #8 and Personal Fitness #2 and Duty to God #1 homework DUEFirst Aid adventure with Troop 146Duty to God #2 &amp; #3\, and Citizenship #1 with guest speakers
+URL:https://advancements.scouting.org/calendar/event/7151096
+LOCATION:sessions house
+END:VEVENT
 END:VCALENDAR
