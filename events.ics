@@ -322,4 +322,15 @@ DESCRIPTION:Visit with Troops in our area as they conduct activities and skills 
 URL:https://advancements.scouting.org/calendar/event/7153158
 LOCATION:Camp Tahuaya: 2603 Tahuaya Dr Belton\, TX 76513
 END:VEVENT
+BEGIN:VEVENT
+UID:7204027@advancements.scouting.org
+CREATED:20260918T235451Z
+ORGANIZER:David Markel
+DTSTART:20260928T000000Z
+DTEND:20260928T010000Z
+SUMMARY:Pack 149 - Leader/Comittee Meeting
+DESCRIPTION:Join us for our monthly planning meeting as we coordinate upcoming events\, review pack logistics\, and plan activities for our scouts. This meeting is for all Den Leaders\, Committee Members\, and any interested parents who want to get involved in planning activities and supporting Pack 149.
+URL:https://advancements.scouting.org/calendar/event/7204027
+LOCATION:Hope Presbyterian Church? - Check before Going
+END:VEVENT
 END:VCALENDAR
