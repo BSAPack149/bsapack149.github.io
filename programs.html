@@ -64,6 +64,10 @@
     .event-card h3{font-family:'Oswald',sans-serif;font-size:1.15rem;font-weight:700;color:var(--navy);text-transform:uppercase;line-height:1.2;margin-bottom:.5rem}
     .event-sub{font-family:'Oswald',sans-serif;font-size:.82rem;color:var(--gold-dark);text-transform:uppercase;letter-spacing:.04em;margin-bottom:.5rem}
     .event-card p{font-size:.92rem;color:var(--gray-text);line-height:1.8;margin:0}
+    .event-photo a{display:block;width:100%;height:100%}
+    .event-more{display:inline-flex;align-items:center;gap:.45rem;margin-top:1rem;background:var(--navy);color:var(--gold);font-family:'Oswald',sans-serif;font-size:.85rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;text-decoration:none;padding:.55rem 1.1rem;border-radius:6px;transition:background .2s,transform .2s}
+    .event-more:hover,.event-more:focus-visible{background:#002a5c;transform:translateY(-1px)}
+    .event-more:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
 
     /* SKILLS & VALUES */
     .event-skills{margin-top:1rem;padding-top:.9rem;border-top:1px solid rgba(0,63,135,.1)}
@@ -224,12 +228,13 @@
 
           <div class="event-card">
             <div class="event-photo">
-              <img src="bobcat-ceremony.png" alt="Bobcat Ceremony group photo" style="object-position:50% 35%">
+              <a href="bobcat-ceremony/" aria-label="Watch The Painted Bobcat, an animated Bobcat ceremony"><img src="bobcat-ceremony.png" alt="Bobcat Ceremony group photo" style="object-position:50% 35%"></a>
             </div>
             <div class="event-body">
               <div class="event-tags"><span class="event-tag">All Scouts</span></div>
               <h3>Bobcat Ceremony</h3>
               <p>Every new scout's first milestone. The Bobcat ceremony celebrates scouts who have completed the Bobcat Adventure, their introduction to the Scout Oath, Scout Law, and the spirit of Scouting. A proud moment for scouts and families alike.</p>
+              <a class="event-more" href="bobcat-ceremony/"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="6 4 20 12 6 20 6 4"/></svg>Click to learn more</a>
               <div class="event-skills">
                 <span class="skills-label">Skills &amp; Values</span>
                 <div class="skill-chips">
