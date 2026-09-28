@@ -15,17 +15,6 @@ URL:https://advancements.scouting.org/calendar/event/6597967
 LOCATION:Circuit of the Americas\, 9201 Circuit of the Americas Blvd\, Del Valle\, 78617
 END:VEVENT
 BEGIN:VEVENT
-UID:6597982@advancements.scouting.org
-CREATED:20250830T215953Z
-ORGANIZER:David Powers
-DTSTART:20250927T133000Z
-DTEND:20250927T204500Z
-SUMMARY:Kite & Rocket Festival - Council Event (Optional)
-DESCRIPTION:Registration and details here: https://www.capitolareascouting.org/activities/cub-scout-activities/kiteandrocketfest/\nRegistration required to attend event.\n
-URL:https://advancements.scouting.org/calendar/event/6597982
-LOCATION:Smilin V Scout Ranch\, 250 County Rd 286 Spur\, Liberty Hill\, TX 78642
-END:VEVENT
-BEGIN:VEVENT
 UID:6597987@advancements.scouting.org
 CREATED:20250830T220437Z
 ORGANIZER:David Powers
@@ -325,9 +314,9 @@ END:VEVENT
 BEGIN:VEVENT
 UID:7204027@advancements.scouting.org
 CREATED:20260918T235451Z
-ORGANIZER:David Markel
-DTSTART:20260928T000000Z
-DTEND:20260928T010000Z
+ORGANIZER:Chad Hager
+DTSTART:20261005T000000Z
+DTEND:20261005T010000Z
 SUMMARY:Pack 149 - Leader/Comittee Meeting
 DESCRIPTION:Join us for our monthly planning meeting as we coordinate upcoming events\, review pack logistics\, and plan activities for our scouts. This meeting is for all Den Leaders\, Committee Members\, and any interested parents who want to get involved in planning activities and supporting Pack 149.
 URL:https://advancements.scouting.org/calendar/event/7204027
