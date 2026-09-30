@@ -300,4 +300,15 @@ DESCRIPTION:Join us for our monthly planning meeting as we coordinate upcoming e
 URL:https://advancements.scouting.org/calendar/event/7204027
 LOCATION:Hope Presbyterian Church? - Check before Going
 END:VEVENT
+BEGIN:VEVENT
+UID:7226241@advancements.scouting.org
+CREATED:20260930T180757Z
+ORGANIZER:Rocky Clark
+DTSTART:20261031T130000Z
+DTEND:20261031T210000Z
+SUMMARY:Cub Scouts "Give It A Shot!"
+DESCRIPTION:https://scoutingevent.com/564-giveitashot2026Registration\, fee\, and forms required. Adults free.
+URL:https://advancements.scouting.org/calendar/event/7226241
+LOCATION:250 CR 286 Spur Liberty Hill\, Texas 78642
+END:VEVENT
 END:VCALENDAR
