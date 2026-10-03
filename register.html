@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Pack 149 Registration</title>
+  <meta name="description" content="Open registration forms for Cub Scout Pack 149.">
+  <meta name="theme-color" content="#003f87">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Pack 149">
+  <link rel="manifest" href="register-assets/register.webmanifest">
+  <link rel="apple-touch-icon" href="register-assets/register-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --navy:#003f87;--navy-deep:#00224a;--gold:#ffc72c;
+      --bg:#eef1f6;--card:#fff;--text:#1d2433;--muted:#5b6475;--line:rgba(16,24,40,.08);
+      --shadow:0 1px 2px rgba(16,24,40,.06),0 8px 24px rgba(16,24,40,.08);
+    }
+    @media (prefers-color-scheme:dark){
+      :root{--bg:#0b111b;--card:#161f2d;--text:#eef1f6;--muted:#a3adbd;--line:rgba(255,255,255,.07);--shadow:0 1px 2px rgba(0,0,0,.5)}
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{-webkit-text-size-adjust:100%}
+    body{font-family:'Open Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.5;min-height:100vh;min-height:100dvh;-webkit-tap-highlight-color:transparent}
+    a{color:inherit;text-decoration:none}
+    img{display:block;max-width:100%}
+    svg{flex-shrink:0}
+
+    /* SPLASH (shown when opened from the home screen) */
+    .splash{position:fixed;inset:0;z-index:50;background:radial-gradient(circle at 50% 40%,#0a4f9e 0%,var(--navy) 40%,var(--navy-deep) 100%);display:none;place-items:center;transition:opacity .45s ease,visibility .45s}
+    .splash.show{display:grid}
+    .splash.hide{opacity:0;visibility:hidden}
+    .splash-mark{width:120px;height:120px;border-radius:28px;animation:pop .7s cubic-bezier(.2,.9,.3,1.3) both}
+    .splash-name{font-family:'Oswald',sans-serif;color:#fff;font-size:1.3rem;letter-spacing:.2em;text-transform:uppercase;text-align:center;margin-top:1rem;animation:rise .6s .2s ease both}
+    @keyframes pop{from{transform:scale(.5) rotate(-12deg);opacity:0}to{transform:none;opacity:1}}
+    @keyframes rise{from{transform:translateY(10px);opacity:0}to{transform:none;opacity:1}}
+
+    /* COMPACT TOP BAR (appears after scrolling past the hero) */
+    .topbar{position:fixed;top:0;left:0;right:0;z-index:20;background:rgba(0,46,100,.88);-webkit-backdrop-filter:saturate(180%) blur(14px);backdrop-filter:saturate(180%) blur(14px);color:#fff;padding:calc(env(safe-area-inset-top) + .55rem) 1rem .55rem;display:flex;align-items:center;justify-content:center;gap:.5rem;font-family:'Oswald',sans-serif;font-size:1.05rem;letter-spacing:.06em;text-transform:uppercase;transform:translateY(-100%);transition:transform .25s ease;box-shadow:0 1px 0 rgba(255,255,255,.08)}
+    .topbar.show{transform:none}
+    .topbar svg{width:22px;height:22px}
+
+    /* HERO */
+    .hero{position:relative;overflow:hidden;color:#fff;text-align:center;padding:calc(env(safe-area-inset-top) + 1.1rem) 1.25rem 2.9rem;background:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44'%3E%3Cpath d='M22 6 38 22 22 38 6 22Z' fill='none' stroke='%23ffc72c' stroke-opacity='.09' stroke-width='1.5'/%3E%3C/svg%3E"),
+      radial-gradient(ellipse at 50% -10%,#1560b8 0%,transparent 60%),
+      linear-gradient(170deg,var(--navy) 0%,var(--navy-deep) 100%)}
+    .hero::after{content:"";position:absolute;left:-10%;right:-10%;bottom:-1px;height:32px;background:var(--bg);border-radius:50% 50% 0 0/100% 100% 0 0}
+    .hero-logo{display:inline-block;margin:0 auto .8rem;border-radius:8px;transition:transform .2s ease}
+    .hero-logo:active{transform:scale(.95)}
+    .hero-logo:focus-visible{outline:3px solid var(--gold);outline-offset:4px}
+    .hero img{height:48px;width:auto}
+    .hero-greet{font-family:'Oswald',sans-serif;color:var(--gold);font-size:.82rem;letter-spacing:.14em;text-transform:uppercase}
+    .hero h1{font-family:'Oswald',sans-serif;font-weight:700;font-size:1.95rem;line-height:1.05;letter-spacing:.01em;text-transform:uppercase;margin-top:.15rem}
+
+    main{position:relative;max-width:560px;margin:-.6rem auto 0;padding:0 1rem calc(env(safe-area-inset-bottom) + 1.5rem)}
+    .section-head{display:flex;align-items:baseline;justify-content:space-between;margin:1.3rem .2rem .55rem}
+    .section-head:first-child{margin-top:0}
+    .section-head h2{font-family:'Oswald',sans-serif;font-size:1.12rem;font-weight:700;letter-spacing:.02em;text-transform:uppercase}
+    .section-head span{font-size:.8rem;color:var(--muted)}
+    .stack{display:flex;flex-direction:column;gap:.75rem}
+
+    /* SHARED CARD BEHAVIOR: tap bounce */
+    .tap{transition:transform .35s cubic-bezier(.2,.9,.3,1.4),box-shadow .2s ease}
+    .tap:active{transform:scale(.965);transition-duration:.1s}
+    .tap:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+    @media (hover:hover){.tap:hover{transform:translateY(-3px);box-shadow:0 2px 4px rgba(16,24,40,.08),0 16px 32px rgba(16,24,40,.14)}}
+
+    .chip{display:inline-flex;align-items:center;gap:.3rem;font-family:'Oswald',sans-serif;font-size:.74rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;padding:.22rem .65rem;border-radius:20px;white-space:nowrap}
+    .chip svg{width:13px;height:13px}
+    .chip-rank{background:var(--gold);color:var(--navy-deep)}
+
+    /* GEAR CARD */
+    .gear-card{--accent:var(--navy);display:flex;background:var(--card);border-radius:20px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line);align-items:center}
+    .gear-card img{width:84px;align-self:stretch;object-fit:cover;object-position:50% 15%;flex-shrink:0}
+    .gear-body{flex:1;padding:.8rem .95rem;display:flex;align-items:center;gap:.75rem;min-width:0}
+    .gear-text{flex:1;min-width:0}
+    .gear-body h3{font-family:'Oswald',sans-serif;font-size:1.15rem;font-weight:700;line-height:1.15}
+    .gear-body p{font-size:.84rem;color:var(--muted);margin-top:.1rem}
+
+    /* EVENT CARD */
+    .event-card{display:block;background:var(--card);border-radius:22px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line)}
+    .event-photo{position:relative;aspect-ratio:2.3/1;background:var(--accent)}
+    .event-photo img{width:100%;height:100%;object-fit:cover}
+    .event-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.25) 0%,transparent 30%,transparent 45%,rgba(0,0,0,.72) 100%)}
+    .event-photo h3{position:absolute;left:1.1rem;right:1.1rem;bottom:.6rem;z-index:1;color:#fff;font-family:'Oswald',sans-serif;font-size:1.45rem;font-weight:700;line-height:1.05;text-transform:uppercase;letter-spacing:.01em;text-shadow:0 2px 12px rgba(0,0,0,.35)}
+    .countdown{position:absolute;top:.65rem;left:.65rem;z-index:1;display:flex;align-items:baseline;gap:.3rem;background:rgba(255,255,255,.92);color:var(--navy-deep);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-radius:12px;padding:.2rem .6rem;font-family:'Oswald',sans-serif;box-shadow:0 4px 14px rgba(0,0,0,.18)}
+    .countdown b{font-size:1.15rem;font-weight:700;line-height:1;color:var(--accent)}
+    .countdown b:empty{display:none}
+    .countdown span{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600}
+    .countdown[hidden]{display:none}
+    .event-photo .chip-rank{position:absolute;top:.7rem;right:.65rem;z-index:1;box-shadow:0 4px 14px rgba(0,0,0,.2)}
+    .event-body{padding:.75rem .95rem .85rem}
+    .meta{display:flex;flex-wrap:wrap;gap:.35rem 1rem;font-size:.86rem;font-weight:600;color:var(--accent)}
+    .meta span{display:inline-flex;align-items:center;gap:.35rem}
+    .meta svg{width:15px;height:15px}
+    @media (prefers-color-scheme:dark){.meta{color:var(--accent-light)}}
+    .event-body p{font-size:.85rem;color:var(--muted);margin-top:.3rem;line-height:1.45}
+    .event-body .cta{display:flex;margin-top:.7rem}
+
+    .cta{display:inline-flex;align-items:center;justify-content:center;gap:.35rem;margin-left:auto;flex-shrink:0;background:var(--accent);color:#fff;font-family:'Oswald',sans-serif;font-size:.92rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:.5rem .95rem;border-radius:12px}
+    .cta svg{width:16px;height:16px}
+
+    .empty{background:var(--card);border:1px dashed rgba(91,100,117,.35);border-radius:18px;padding:1rem;text-align:center;font-size:.88rem;color:var(--muted)}
+    .empty[hidden]{display:none}
+
+    /* COMING UP LATER */
+    .later{background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);overflow:hidden}
+    .later-row{display:flex;align-items:center;gap:.75rem;padding:.6rem .8rem}
+    .later-row + .later-row{border-top:1px solid var(--line)}
+    .later-row img{width:46px;height:46px;border-radius:11px;object-fit:cover;filter:grayscale(.45)}
+    .later-text{flex:1;min-width:0}
+    .later-text h3{font-family:'Oswald',sans-serif;font-size:1rem;font-weight:600;line-height:1.2}
+    .later-when{font-size:.8rem;color:var(--muted)}
+    .later-row .chip{font-size:.62rem;padding:.12rem .5rem}
+
+    .reveal{animation:rise .5s ease both}
+    .stack .reveal:nth-child(2){animation-delay:.07s}
+    @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+  </style>
+</head>
+<body>
+
+  <div class="splash" id="splash" aria-hidden="true">
+    <div>
+      <img class="splash-mark" src="register-assets/register-icon.png" alt="">
+      <div class="splash-name">Pack 149</div>
+    </div>
+  </div>
+
+  <div class="topbar" id="topbar" aria-hidden="true">
+    <svg viewBox="0 0 24 24"><path d="M12 2 22 12 12 22 2 12Z" fill="#ffc72c"/><path d="M12 5.5 18.5 12 12 18.5 5.5 12Z" fill="#003f87"/></svg>
+    Pack 149 Registration
+  </div>
+
+  <header class="hero" id="hero">
+    <a class="hero-logo" href="./" aria-label="Pack 149 home page"><img src="bsa149logo.png" alt="Cub Scout Pack 149"></a>
+    <div class="hero-greet">Hi, Pack 149 families!</div>
+    <h1>Registration</h1>
+  </header>
+
+  <main>
+
+    <!-- ============ PACK GEAR ============ -->
+    <div class="section-head"><h2>Pack Gear</h2></div>
+    <div class="stack">
+      <a class="gear-card tap reveal" href="https://pci.jotform.com/form/242798103818161" target="_blank" rel="noopener">
+        <img src="register-assets/class-b-shirt.jpg" alt="Scout wearing the Pack 149 Class B shirt">
+        <div class="gear-body">
+          <div class="gear-text">
+            <h3>Class B Shirt Payment</h3>
+            <p>For your scout's Pack 149 activity shirt.</p>
+          </div>
+          <span class="cta">Pay
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </span>
+        </div>
+      </a>
+    </div>
+
+    <!-- ============ EVENTS ============
+      To add an event: copy one <a class="event-card"> block and change:
+        style="--accent"   card color (--accent-light is the lighter version used in dark mode)
+        data-start         first day of the event (YYYY-MM-DD); the card disappears on its own that day
+        href, photo, title, date text, and description
+    -->
+    <div class="section-head"><h2>Events</h2></div>
+    <div class="stack">
+
+      <a class="event-card tap reveal" style="--accent:#2e6b3c;--accent-light:#7fcf8f"
+         href="https://pci.jotform.com/form/262724198551160" target="_blank" rel="noopener"
+         data-start="2026-11-20">
+        <div class="event-photo">
+          <img src="register-assets/fall-campout.jpg" alt="Scouts and families around a campfire">
+          <div class="countdown" hidden><b></b><span></span></div>
+          <h3>Fall Campout</h3>
+        </div>
+        <div class="event-body">
+          <div class="meta">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Nov 20&ndash;22, 2026</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12Z"/><circle cx="12" cy="9" r="2.5"/></svg>Camp Tahuaya</span>
+          </div>
+          <p>Whole-pack family campout. Friday night (Nov 20) is optional, for Webelos &amp; AOL only.</p>
+          <span class="cta">Register
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </span>
+        </div>
+      </a>
+
+      <a class="event-card tap reveal" style="--accent:#0a5f95;--accent-light:#6cc4f5"
+         href="https://pci.jotform.com/form/250127966469165" target="_blank" rel="noopener"
+         data-start="2027-04-03">
+        <div class="event-photo">
+          <img src="register-assets/lexington.jpg" alt="Scouts on the flight deck of the USS Lexington">
+          <div class="countdown" hidden><b></b><span></span></div>
+          <span class="chip chip-rank">Tiger &amp; Wolf only</span>
+          <h3>Lexington Overnight</h3>
+        </div>
+        <div class="event-body">
+          <div class="meta">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Apr 3&ndash;4, 2027</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12Z"/><circle cx="12" cy="9" r="2.5"/></svg>Corpus Christi</span>
+          </div>
+          <p>Sleep aboard the USS Lexington aircraft carrier.</p>
+          <span class="cta">Register
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </span>
+        </div>
+      </a>
+
+    </div>
+
+    <p class="empty" id="no-events" hidden>No event registrations are open right now. Check back soon!</p>
+
+    <!-- ============ COMING UP LATER ============
+      When registration opens, delete the row here and add a full event card above.
+    -->
+    <div class="section-head"><h2>Coming Up Later</h2><span>Registration not open yet</span></div>
+    <div class="later reveal">
+      <div class="later-row">
+        <img src="register-assets/nasa-overnight.jpg" alt="">
+        <div class="later-text">
+          <h3>NASA Campout</h3>
+          <div class="later-when">March 2027 &middot; Houston</div>
+        </div>
+        <span class="chip chip-rank">Bears only</span>
+      </div>
+      <div class="later-row">
+        <img src="register-assets/webelos-i-campout.jpg" alt="">
+        <div class="later-text">
+          <h3>Webelos Campout</h3>
+          <div class="later-when">March 2027</div>
+        </div>
+        <span class="chip chip-rank">Webelos only</span>
+      </div>
+      <div class="later-row">
+        <img src="register-assets/blue-gold-ceremony.jpg" alt="">
+        <div class="later-text">
+          <h3>Blue &amp; Gold Banquet</h3>
+          <div class="later-when">Apr 24, 2027 &middot; Spicewood Elementary</div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    // Splash: only when launched from the home screen (or with ?splash for previewing)
+    (function(){
+      var standalone = window.matchMedia('(display-mode: standalone)').matches || navigator.standalone;
+      if (!standalone && !/[?&]splash/.test(location.search)) return;
+      var s = document.getElementById('splash');
+      s.classList.add('show');
+      window.addEventListener('load', function(){
+        setTimeout(function(){ s.classList.add('hide'); }, 900);
+      });
+    })();
+
+    // Compact top bar once the hero scrolls away
+    (function(){
+      var bar = document.getElementById('topbar'), hero = document.getElementById('hero');
+      function update(){ bar.classList.toggle('show', window.scrollY > hero.offsetHeight - 60); }
+      window.addEventListener('scroll', update, {passive:true});
+      update();
+    })();
+
+    // Countdown badges
+    (function(){
+      var DAY = 864e5;
+      function parse(d){ var p = d.split('-'); return new Date(+p[0], p[1]-1, +p[2]); }
+      var t = new Date(), today = new Date(t.getFullYear(), t.getMonth(), t.getDate());
+      function daysUntil(d){ return Math.round((parse(d) - today) / DAY); }
+
+      document.querySelectorAll('.event-card').forEach(function(card){
+        // Once the event starts, its card drops off the page
+        var start = daysUntil(card.dataset.start);
+        if (start <= 0) { card.remove(); return; }
+
+        var cd = card.querySelector('.countdown');
+        cd.querySelector('b').textContent = start > 1 ? start : '';
+        cd.querySelector('span').textContent = start > 1 ? 'days away' : 'Tomorrow!';
+        cd.hidden = false;
+      });
+
+      if (!document.querySelector('.event-card')) document.getElementById('no-events').hidden = false;
+    })();
+  </script>
+</body>
+</html>

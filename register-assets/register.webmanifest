@@ -1,0 +1,12 @@
+{
+  "name": "Pack 149 Registration",
+  "short_name": "Pack 149",
+  "start_url": "../register.html",
+  "scope": "../register",
+  "display": "standalone",
+  "background_color": "#003f87",
+  "theme_color": "#003f87",
+  "icons": [
+    { "src": "register-icon.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}
