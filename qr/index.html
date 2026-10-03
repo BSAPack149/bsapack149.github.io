@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+
+  <!-- =====================================================================
+       QR SIGN REDIRECT
+       The QR code on the pack sign points here (www.bsapack149.org/qr/).
+       To send the sign somewhere new, change ONLY the address after "url="
+       on the line below, then save/commit. Examples:
+         url=/register.html                                  (registration page)
+         url=/calendar.html                                  (pack calendar)
+         url=https://pci.jotform.com/form/262724198551160    (a form directly)
+       ===================================================================== -->
+  <meta http-equiv="refresh" content="0; url=/register.html">
+
+  <title>Pack 149</title>
+  <style>
+    body{margin:0;min-height:100vh;display:grid;place-items:center;background:#003f87;color:#fff;font-family:system-ui,-apple-system,sans-serif;text-align:center}
+    a{color:#ffc72c;font-weight:600}
+  </style>
+</head>
+<body>
+  <p>Taking you there&hellip;<br><a id="go" href="/register.html">Tap here if nothing happens</a></p>
+  <script>
+    // Reads the address from the refresh line above, so it only needs to be changed in one place
+    var content = document.querySelector('meta[http-equiv="refresh"]').content;
+    var target = content.slice(content.indexOf('url=') + 4).trim();
+    document.getElementById('go').href = target;
+    location.replace(target);
+  </script>
+</body>
+</html>
