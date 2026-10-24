@@ -300,4 +300,15 @@ DESCRIPTION:https://scoutingevent.com/564-giveitashot2026Registration\, fee\, an
 URL:https://advancements.scouting.org/calendar/event/7226241
 LOCATION:250 CR 286 Spur Liberty Hill\, Texas 78642
 END:VEVENT
+BEGIN:VEVENT
+UID:7257019@advancements.scouting.org
+CREATED:20261024T151012Z
+ORGANIZER:David Markel
+DTSTART:20261102T010000Z
+DTEND:20261102T020000Z
+SUMMARY:Pack 149 - Leader/Comittee Meeting
+DESCRIPTION:Join us for our monthly planning meeting as we coordinate upcoming events\, review pack logistics\, and plan activities for our scouts. This meeting is for all Den Leaders\, Committee Members\, and any interested parents who want to get involved in planning activities and supporting Pack 149.
+URL:https://advancements.scouting.org/calendar/event/7257019
+LOCATION:Hope Presbyterian Church and Online
+END:VEVENT
 END:VCALENDAR
